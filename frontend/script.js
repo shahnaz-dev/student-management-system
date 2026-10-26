@@ -5,8 +5,10 @@
 
 'use strict';
 
-// ── API base URL (change this if your server runs on a different port)
-const API_BASE = 'http://localhost:3000/api';
+// Use the current host when deployed; fall back to localhost in development.
+const API_BASE = window.location.hostname === 'localhost'
+    ? 'http://localhost:3000/api'
+    : `${window.location.origin}/api`;
 
 // ── In-memory cache for departments and courses (used by dropdowns)
 let allDepartments = [];
